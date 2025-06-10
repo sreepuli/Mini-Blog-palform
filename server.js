@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const admin = require('firebase-admin');
 const session = require('express-session');
 const bodyParser = require('body-parser');
