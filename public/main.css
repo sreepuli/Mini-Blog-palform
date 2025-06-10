@@ -1,0 +1,84 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* Reset and Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f9ff;
+  color: #333;
+  line-height: 1.6;
+  padding: 2rem;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #5e2ced;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+h2 {
+  color: #4e3b95;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+a {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #5e2ced;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #3a1eb5;
+  text-decoration: underline;
+}
+
+/* Blog Container */
+.blog-post {
+  max-width: 800px;
+  background: #fff;
+  padding: 2rem;
+  margin: 0 auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.blog-post:hover {
+  transform: scale(1.01);
+}
+
+/* Responsive Text */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+  }
+
+  body {
+    padding: 1rem;
+  }
+
+  .blog-post {
+    padding: 1.2rem;
+  }
+}

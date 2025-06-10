@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>User Profile - Write Your Blog</title>
+  <link rel="stylesheet" href="/profile.css" />
+</head>
+<body>
+  <div class="profile-container">
+    <!-- Welcome User Profile Section -->
+    <div class="profile-header">
+      <div class="user-avatar"><%= user.name.charAt(0).toUpperCase() %></div>
+      <div class="user-details">
+        <h1 id="welcomeUser">Welcome, <%= user.name %>!</h1>
+        <p>Start writing your awesome blog below.</p>
+        <button id="logoutBtn" class="btn btn-danger">Logout</button>
+      </div>
+    </div>
+
+    <!-- Blog Writing Section -->
+    <section class="blog-writing-section">
+      <h2>Write Your Blog</h2>
+      <form id="blogForm">
+        <div class="form-group">
+          <label for="title">Blog Title</label>
+          <input type="text" id="title" placeholder="Enter blog title" maxlength="100" />
+        </div>
+
+        <div class="form-group">
+          <label for="category">Category</label>
+          <select id="category">
+            <option value="" selected disabled>Select category</option>
+            <option value="Technology">Technology</option>
+            <option value="Lifestyle">Lifestyle</option>
+            <option value="Travel">Travel</option>
+            <option value="Education">Education</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+       <div class="toolbar">
+  <button type="button" title="Bold" onclick="format('bold')"><b>B</b></button>
+  <button type="button" title="Italic" onclick="format('italic')"><i>I</i></button>
+  <button type="button" title="Underline" onclick="format('underline')"><u>U</u></button>
+  <button type="button" title="Insert Image" onclick="document.getElementById('imageUploader').click()">🖼️</button>
+  <input type="file" id="imageUploader" accept="image/*" style="display:none" />
+</div>
+
+
+        <div
+          id="content"
+          class="contenteditable"
+          contenteditable="true"
+          placeholder="Write your blog content here..."
+          spellcheck="true"
+        ></div>
+        <div class="char-count" id="charCount">0 / 2000 characters</div>
+
+        <div class="form-buttons">
+          <button type="submit" class="btn btn-primary">Publish Blog</button>
+          <button type="button" id="resetBtn" class="btn btn-secondary">Reset</button>
+        </div>
+
+        <div id="message" class="message"></div>
+      </form>
+    </section>
+
+    <!-- Blog Preview Section -->
+    <section class="blog-preview-section">
+      <h2>Blog Preview</h2>
+      <div class="blog-preview">
+        <h3 id="previewTitle">Your Blog Title Here</h3>
+        <p id="previewCategory"><strong>Category:</strong> None</p>
+        <div id="previewContent" class="preview-content">
+          Your blog content will appear here as you type...
+        </div>
+      </div>
+    </section>
+
+    <!-- Published Blogs List -->
+    <section class="user-blogs">
+      <h2>Your Published Blogs</h2>
+      <div id="blogsList"></div>
+    </section>
+  </div>
+
+  <script src="js\profile.js"></script>
+</body>
+</html>

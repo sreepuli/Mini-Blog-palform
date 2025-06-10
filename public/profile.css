@@ -1,0 +1,219 @@
+/* profile.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: #f9fafb;
+  color: #222;
+}
+
+.profile-container {
+  max-width: 750px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  box-shadow: 0 5px 15px rgb(0 0 0 / 0.1);
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.user-avatar {
+  background-color: #6a11cb;
+  color: white;
+  font-weight: 700;
+  font-size: 2rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  margin-right: 1rem;
+}
+
+.user-details h1 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #4b0082;
+}
+
+.user-details p {
+  margin: 0;
+  font-weight: 400;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.blog-writing-section h2,
+.blog-preview-section h2 {
+  font-weight: 700;
+  color: #6a11cb;
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.form-group input[type="text"],
+.form-group select {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  border: 1.5px solid #ccc;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.form-group input[type="text"]:focus,
+.form-group select:focus {
+  border-color: #6a11cb;
+  outline: none;
+}
+
+.toolbar {
+  display: flex;
+  gap: 0.7rem;
+  margin-bottom: 0.8rem;
+}
+
+.toolbar button {
+  background: #6a11cb;
+  border: none;
+  padding: 0.5rem 0.7rem;
+  border-radius: 8px;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toolbar button:hover {
+  background: #4b0082;
+}
+
+.contenteditable img {
+  max-width: 100%;
+  height: auto;
+  cursor: pointer;
+  transition: outline 0.2s ease;
+}
+
+.contenteditable img.selected-image {
+  outline: 3px solid #6a11cb; /* Purple highlight */
+  outline-offset: 2px;
+}
+
+.contenteditable {
+  border: 1.5px solid #ccc;
+  min-height: 280px;
+  padding: 1.25rem 1.5rem;
+  border-radius: 10px;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  overflow-y: auto;
+  outline: none;
+  background-color: #fafafa;
+  box-sizing: border-box;
+}
+
+.contenteditable:empty::before {
+  content: attr(placeholder);
+  color: #aaa;
+  pointer-events: none;
+  user-select: none;
+  font-style: italic;
+}
+
+.char-count {
+  font-size: 0.85rem;
+  color: #888;
+  margin-top: 0.3rem;
+  text-align: right;
+}
+
+.form-buttons {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 0.7rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.btn-primary {
+  background-color: #6a11cb;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #4b0082;
+}
+
+.btn-secondary {
+  background-color: #e0e0e0;
+  color: #444;
+}
+
+.btn-secondary:hover {
+  background-color: #cacaca;
+}
+
+.message {
+  margin-top: 1rem;
+  font-weight: 600;
+  color: #d9534f;
+}
+
+.blog-preview-section {
+  margin-top: 3rem;
+}
+
+.blog-preview {
+  padding: 1rem 1.5rem;
+  border: 1.5px solid #6a11cb;
+  border-radius: 12px;
+  background-color: #f8f5ff;
+}
+
+.blog-preview h3 {
+  margin-top: 0;
+  color: #6a11cb;
+}
+
+.blog-preview p {
+  margin: 0.5rem 0 1rem 0;
+  color: #333;
+}
+
+.preview-content {
+  white-space: pre-wrap;
+  color: #444;
+}

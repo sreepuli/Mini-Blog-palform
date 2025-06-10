@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Global Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background: #f3f4f6;
+  color: #333;
+}
+
+.button-group {
+  margin-top: 20px;
+}
+
+/* Header */
+header {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  padding: 60px 20px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+header p {
+  font-size: 18px;
+  margin-top: 10px;
+  opacity: 0.9;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  margin: 10px;
+  padding: 12px 25px;
+  background: white;
+  color: #6a11cb;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 30px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #5e0eb3;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Hero Section */
+.hero {
+  margin: 20px auto;
+  max-width: 1200px;
+  font-size: 20px;
+  padding: 30px;
+}
+
+/* Featured Blogs */
+.featured {
+  padding: 60px 20px;
+  background: white;
+}
+
+.featured h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #5e0eb3;
+}
+
+.blog-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.blog-post {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  color: #333;
+  padding: 25px;
+  width: 280px;
+  border-radius: 15px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-post:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.blog-post h3 {
+  margin-top: 0;
+  font-size: 20px;
+  color: #6a11cb;
+}
+
+.read-more {
+  color: #6a11cb;
+  text-decoration: underline;
+  font-weight: bold;
+  display: block;
+  margin-top: 10px;
+}
+
+/* How It Works */
+.how-it-works {
+  padding: 60px;
+  background: #eef2f3;
+  border-radius: 20px;
+  margin: 40px;
+}
+
+.how-it-works h2 {
+  font-size: 28px;
+  color: #5e0eb3;
+}
+
+.steps {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.step {
+  background: linear-gradient(135deg, #43cea2, #185a9d);
+  color: white;
+  padding: 20px;
+  border-radius: 15px;
+  font-weight: bold;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.step:hover {
+  transform: scale(1.05);
+}
+
+/* Call to Action */
+.cta {
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    border-radius: 20px;
+    text-align: center;
+    margin: 40px 20px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cta h2 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.cta-btn {
+    display: inline-block;
+    padding: 14px 28px;
+    background: white;
+    color: #6a11cb;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+.cta-btn:hover {
+    background: #5e0eb3;
+    color: white;
+    transform: translateY(-2px);
+}
+.cta p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    opacity: 0.95;
+}
+
+/* Footer */
+footer {
+  background: #222;
+  color: white;
+  padding: 20px;
+  font-size: 14px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #121212;
+  color: #f5f5f5;
+}
+
+body.dark-mode header {
+  background: linear-gradient(135deg, #1e1e2f, #3a3a5a);
+}
+
+body.dark-mode .btn {
+  background: #333;
+  color: #fff;
+}
+
+body.dark-mode .btn:hover {
+  background: #444;
+}
+
+body.dark-mode .hero,
+body.dark-mode .blog-post,
+body.dark-mode .cta,
+body.dark-mode .how-it-works,
+body.dark-mode footer {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+}
+
+body.dark-mode .blog-post h3,
+body.dark-mode .featured h2,
+body.dark-mode .how-it-works h2,
+body.dark-mode .cta h2 {
+  color: #9c8eff;
+}
+
+body.dark-mode .read-more {
+  color: #b99cff;
+}
+
+body.dark-mode .step {
+  background: linear-gradient(135deg, #4e4e70, #1c1c2c);
+}
