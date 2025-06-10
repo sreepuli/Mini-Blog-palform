@@ -44,8 +44,6 @@ bower_components
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
 
-# Dependency directories
-node_modules/
 
 # Optional npm cache directory
 .npm
@@ -67,5 +65,36 @@ node_modules/
 
 # dataconnect generated files
 .dataconnect
+# Node.js
+node_modules/
+.env
 key.json
+
+# Logs
+logs/
+*.log
+
+# OS generated
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# VSCode settings
+.vscode/
+
+# Build files
+dist/
+build/
+
+# Python (if needed)
+__pycache__/
+*.py[cod]
+
+# Other IDEs/editors
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+
+
 
