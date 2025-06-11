@@ -9,13 +9,14 @@ const { v4: uuidv4 } = require('uuid');
 const fs = require('fs');
 const path = require('path');
 const { OAuth2Client } = require('google-auth-library');
+const dotenv = require('dotenv');
+dotenv.config();
 
 const serviceAccount = require('./key.json');
 
-// Initialize Firebase Admin SDK
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  storageBucket: 'my-awesome-project-18.firebasestorage.app', // Replace with your bucket
+  storageBucket: 'my-awesome-project-18.appspot.com', // Fixed domain typo
 });
 const db = admin.firestore();
 const bucket = admin.storage().bucket();
@@ -49,7 +50,6 @@ function isAuthenticated(req, res, next) {
   return res.redirect('/login.html');
 }
 
-// User Signup
 app.post('/signup', async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -80,7 +80,6 @@ app.post('/signup', async (req, res) => {
   }
 });
 
-// User Login
 app.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -112,7 +111,6 @@ app.post('/login', async (req, res) => {
   }
 });
 
-// Google Authentication
 app.post('/auth/google', async (req, res) => {
   const { idToken } = req.body;
   try {

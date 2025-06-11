@@ -121,31 +121,10 @@
       text-decoration: underline;
     }
 
-    .google-btn {
+    #googleSignInBtn {
       margin-top: 20px;
-      width: 100%;
-      background-color: white;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 16px;
-      font-weight: 600;
-      padding: 10px;
-      cursor: pointer;
-      color: #444;
       display: flex;
-      align-items: center;
       justify-content: center;
-      transition: all 0.3s;
-    }
-
-    .google-btn:hover {
-      background-color: #f5f5f5;
-    }
-
-    .google-btn img {
-      width: 20px;
-      height: 20px;
-      margin-right: 10px;
     }
   </style>
 </head>
@@ -171,45 +150,51 @@
   </form>
 
   <!-- Google Sign-In Button -->
-  <button id="googleSignInBtn" class="google-btn">
-    <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google Icon">
-    Sign in with Google
-  </button>
+  <div id="googleSignInBtn"></div>
 
   <p class="signup-link">Don't have an account? <a href="signup.html">Sign Up</a></p>
 </div>
 
-<!-- Firebase Google Auth -->
-<script type="module">
-  import { auth, provider, signInWithPopup } from './firebase-config.js';
-
-  const googleSignInBtn = document.getElementById('googleSignInBtn');
-  googleSignInBtn.addEventListener('click', async () => {
-    try {
-      const result = await signInWithPopup(auth, provider);
-      const user = result.user;
-
-      const idToken = await user.getIdToken();
-
-      const res = await fetch('/auth/google', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ idToken }),
-      });
-
-      if (res.ok) {
+<!-- Google Identity Services Script -->
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<script>
+  function handleGoogleLoginSuccess(response) {
+    fetch('/auth/google', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      credentials: 'include',
+      body: JSON.stringify({ idToken: response.credential }),
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data.message === 'Logged in with Google') {
         window.location.href = '/profile';
       } else {
-        alert('Google login failed');
+        alert('Google Sign-In failed');
       }
-    } catch (error) {
-      console.error(error);
-      alert('Google Sign-In Error');
-    }
-  });
+    })
+    .catch(err => {
+      console.error(err);
+      alert('Error during Google Sign-In');
+    });
+  }
+
+  window.onload = () => {
+    google.accounts.id.initialize({
+      client_id: '434751646437-ali87nd1f1bf7hdjvjsvjokcofb4ohnp.apps.googleusercontent.com', // 🔁 Replace this
+      callback: handleGoogleLoginSuccess,
+    });
+
+    google.accounts.id.renderButton(
+      document.getElementById('googleSignInBtn'),
+      { theme: 'outline', size: 'large' }
+    );
+  };
 </script>
 
-<!-- Toggle Password -->
+<!-- Toggle Password Script -->
 <script>
   const passwordInput = document.getElementById('password');
   const togglePassword = document.getElementById('togglePassword');
