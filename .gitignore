@@ -68,7 +68,7 @@ build/Release
 # Node.js
 node_modules/
 .env
-key.json
+#key.json
 
 # Logs
 logs/
