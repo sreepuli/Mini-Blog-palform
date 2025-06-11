@@ -8,15 +8,21 @@
 </head>
 <body>
   <div class="profile-container">
-    <!-- Welcome User Profile Section -->
+    <% if (user) { %>
     <div class="profile-header">
-      <div class="user-avatar"><%= user.name.charAt(0).toUpperCase() %></div>
+      <div class="user-avatar"><%= user.name?.charAt(0).toUpperCase() %></div>
       <div class="user-details">
         <h1 id="welcomeUser">Welcome, <%= user.name %>!</h1>
         <p>Start writing your awesome blog below.</p>
         <button id="logoutBtn" class="btn btn-danger">Logout</button>
       </div>
     </div>
+    <% } else { %>
+    <div class="profile-header">
+      <h1>User session expired or invalid.</h1>
+      <a href="/login.html">Go to Login</a>
+    </div>
+    <% } %>
 
     <!-- Blog Writing Section -->
     <section class="blog-writing-section">
@@ -39,14 +45,13 @@
           </select>
         </div>
 
-       <div class="toolbar">
-  <button type="button" title="Bold" onclick="format('bold')"><b>B</b></button>
-  <button type="button" title="Italic" onclick="format('italic')"><i>I</i></button>
-  <button type="button" title="Underline" onclick="format('underline')"><u>U</u></button>
-  <button type="button" title="Insert Image" onclick="document.getElementById('imageUploader').click()">🖼️</button>
-  <input type="file" id="imageUploader" accept="image/*" style="display:none" />
-</div>
-
+        <div class="toolbar">
+          <button type="button" title="Bold" onclick="format('bold')"><b>B</b></button>
+          <button type="button" title="Italic" onclick="format('italic')"><i>I</i></button>
+          <button type="button" title="Underline" onclick="format('underline')"><u>U</u></button>
+          <button type="button" title="Insert Image" onclick="document.getElementById('imageUploader').click()">🖼️</button>
+          <input type="file" id="imageUploader" accept="image/*" style="display:none" />
+        </div>
 
         <div
           id="content"
@@ -85,6 +90,6 @@
     </section>
   </div>
 
-  <script src="js\profile.js"></script>
+  <script src="/js/profile.js"></script>
 </body>
 </html>
