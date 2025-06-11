@@ -12,11 +12,13 @@ const { OAuth2Client } = require('google-auth-library');
 const dotenv = require('dotenv');
 dotenv.config();
 
+app.set('trust proxy', 1); // For Render or HTTPS environments
+
 const serviceAccount = require('./key.json');
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  storageBucket: 'my-awesome-project-18.appspot.com', // Fixed domain typo
+  storageBucket: 'my-awesome-project-18.appspot.com',
 });
 const db = admin.firestore();
 const bucket = admin.storage().bucket();
@@ -73,6 +75,7 @@ app.post('/signup', async (req, res) => {
     });
 
     req.session.user = { name, email };
+    console.log('Session after signup:', req.session.user);
     return res.redirect('/profile');
   } catch (error) {
     console.error('Signup error:', error);
@@ -135,7 +138,7 @@ app.post('/auth/google', async (req, res) => {
       });
     }
 
-    return res.json({ message: 'Logged in with Google' });
+    return res.redirect('/profile');
   } catch (err) {
     console.error('Google Auth Error:', err);
     res.status(401).json({ error: 'Unauthorized' });
@@ -144,6 +147,8 @@ app.post('/auth/google', async (req, res) => {
 
 app.get('/profile', isAuthenticated, async (req, res) => {
   try {
+    console.log('Session at /profile:', req.session.user);
+
     const blogsRef = db.collection('blogs');
     const userBlogsSnapshot = await blogsRef.where('authorEmail', '==', req.session.user.email).get();
 
@@ -227,6 +232,10 @@ app.get('/profile/data', isAuthenticated, async (req, res) => {
     console.error('Profile data fetch error:', error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
+});
+
+app.get('/check-session', (req, res) => {
+  res.send(req.session.user || 'No session found');
 });
 
 app.get('/logout', (req, res) => {
